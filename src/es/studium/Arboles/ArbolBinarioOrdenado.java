@@ -19,11 +19,19 @@ public class ArbolBinarioOrdenado
 		this.setValor(v);
 		this.derecha = null;
 	}
+	public ArbolBinarioOrdenado(ArbolBinarioOrdenado a)
+	{
+		// David Sánchez
+		this.izquierda = a.izquierda;
+		this.setValor(a.getValor());
+		this.derecha = a.derecha;
+	}
 	public ArbolBinarioOrdenado(ArbolBinarioOrdenado i, Integer v, ArbolBinarioOrdenado d) 
 	{
 		this.izquierda = i;
 		this.setValor(v);
 		this.derecha = d;
+		// Completar
 	}
 
 	// Setters y Getters
@@ -58,9 +66,9 @@ public class ArbolBinarioOrdenado
 	}
 
 	// Otros inspectores
-	public void add(Integer v) 
+	public void add(Integer v)
 	{
-		if (v < this.valor) 
+		if (v < this.valor)
 		{
 			if (izquierda != null) 
 			{
@@ -87,184 +95,251 @@ public class ArbolBinarioOrdenado
 	{
 		String cadena = "[Valor="+getValor()+", Izquierda="+getIzquierda()+", Derecha="+getDerecha()+"]";
 		return cadena;
+		// Completar
 	}
 	public boolean buscar(Integer v) 
 	{
+		boolean resultado = false;
 		if (v == this.valor) 
 		{
-			return true;
+			resultado = true;
 		} 
 		else if (v < this.valor) 
 		{
 			if (this.izquierda != null) 
 			{
-				return this.izquierda.buscar(v);
+				resultado = this.izquierda.buscar(v);
 			} 
 			else 
 			{
-				return false;
+				resultado = false;
 			}
 		} 
 		else 
 		{
 			if (this.derecha != null) 
 			{
-				return this.derecha.buscar(v);
+				resultado = this.derecha.buscar(v);
 			} 
 			else 
 			{
-				return false;
+				resultado = false;
 			}
 		}
+		return resultado;
 	}
 	public void mostrarIn()
 	{
-        if(izquierda!=null)
-        {
-        	izquierda.mostrarIn();
-        }
-        System.out.println(valor);
-        if(derecha!=null)
-        {
-        	derecha.mostrarIn();
-        }
-    }
- 
-    public void mostrarPre()
-    {
-        System.out.println(valor);
-        if(izquierda!=null)
-        {
-        	izquierda.mostrarPre();
-        }
-        if(derecha!=null)
-        {
-        	derecha.mostrarPre();
-        }
-    }
- 
-    public void mostrarPos()
-    {
-        if(izquierda!=null)
-        {
-        	izquierda.mostrarPre();
-        }
-        if(derecha!=null)
-        {
-        	derecha.mostrarPre();
-        }
-        System.out.println(valor);
-    }
-    /*
-     * A partir de aquí    
-     */
-    public ArbolBinarioOrdenado anular()
-    {
-    	ArbolBinarioOrdenado resultado = new ArbolBinarioOrdenado();
-    	return resultado;
-    }
-    public boolean arbolVacio()
-    {
-    	boolean vacio = false;
-    	return vacio;
-    }
-    public ArbolBinarioOrdenado construirArbol(ArbolBinarioOrdenado izquierdo, int valor, ArbolBinarioOrdenado derecho)
-    {
-    	ArbolBinarioOrdenado union = new ArbolBinarioOrdenado();
-    	return union;
-    }
-    public ArbolBinarioOrdenado hijoIzquierdo()
-    {
-    	ArbolBinarioOrdenado hijoI = new ArbolBinarioOrdenado();
-    	return hijoI;
-    }
-    public ArbolBinarioOrdenado hijoDerecho()
-    {
-    	ArbolBinarioOrdenado hijoD = new ArbolBinarioOrdenado();
-    	return hijoD;
-    }
-    public int raiz()
-    {
-    	return valor;
-    }
-    public boolean esHoja()
-    {
-    	boolean resultado = true;
-    	return resultado;
-    }
-    public ArbolBinarioOrdenado eliminarArbol()
-    {
-    	ArbolBinarioOrdenado resultado = new ArbolBinarioOrdenado();
-    	return resultado;
-    }
-    public int altura()
-    {
-    	int altura = 0;
-    	return altura;
-    }
-    public int hojas()
-    {
-    	int hojas = 0;
-    	return hojas;
-    }
-    public int contarDato(int x)
-    {
-    	int cuenta = 0;
-    	return cuenta;
-    }
-    public int contarNodos()
-    {
-    	int cuenta = 0;
-    	return cuenta;
-    }
-    public boolean existe(int x)
-    {
-    	boolean existe = false;
-    	return existe;
-    }
-    public boolean comparar(ArbolBinarioOrdenado a, ArbolBinarioOrdenado b)
-    {
-    	boolean iguales = true;
-    	return iguales;
-    }
-    public ArbolBinarioOrdenado espejo(ArbolBinarioOrdenado x)
-    {
-    	ArbolBinarioOrdenado espejo = new ArbolBinarioOrdenado();
-    	return espejo;
-    }
-    public ArbolBinarioOrdenado buscarOrd(int valor)
-    {
-    	ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
-    	return arbol;
-    }
-    public ArbolBinarioOrdenado insertarOrd(int valor)
-    {
-    	ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
-    	return arbol;
-    }
-    public ArbolBinarioOrdenado extremoDerecho()
-    {
-    	ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
-    	return arbol;
-    }
-    public ArbolBinarioOrdenado extremoIzquierdo()
-    {
-    	ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
-    	return arbol;
-    }
-    public ArbolBinarioOrdenado eliminarOrd(int x)
-    {
-    	ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
-    	return arbol;
-    }
-    public ArbolBinarioOrdenado hacerOrd(ArbolBinarioOrdenado a)
-    {
-    	ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
-    	return arbol;
-    }
-    public int contarNodosEnNivel(int nivel)
-    {
-    	int nodos = 0;
-    	return nodos;
-    }
+		if(izquierda!=null)
+		{
+			izquierda.mostrarIn();
+		}
+		if(valor==null)
+		{
+			System.out.println("Árbol vacío");
+		}
+		else
+		{
+			System.out.println(valor);
+		}
+		if(derecha!=null)
+		{
+			derecha.mostrarIn();
+		}
+	}
+
+	public void mostrarPre()
+	{
+		if(valor==null)
+		{
+			System.out.println("Árbol vacío");
+		}
+		else
+		{
+			System.out.println(valor);
+		}
+		if(izquierda!=null)
+		{
+			izquierda.mostrarPre();
+		}
+		if(derecha!=null)
+		{
+			derecha.mostrarPre();
+		}
+	}
+
+	public void mostrarPos()
+	{
+		if(izquierda!=null)
+		{
+			izquierda.mostrarPos();
+		}
+		if(derecha!=null)
+		{
+			derecha.mostrarPos();
+		}
+		if(valor==null)
+		{
+			System.out.println("Árbol vacío");
+		}
+		else
+		{
+			System.out.println(valor);
+		}
+	}
+	/*
+	 * A partir de aquí    
+	 */
+	public void anular()
+	{
+		// Álvaro Carballo
+		this.izquierda=null;
+		this.derecha=null;
+		this.setValor(null);
+	}
+	public boolean arbolVacio()
+	{
+		// Carolina Ávila
+		boolean vacio = false;
+		if((this.valor==null)&&(this.izquierda==null)&&(this.derecha==null))
+		{
+			vacio = true;
+		}
+		return vacio;
+	}
+	public ArbolBinarioOrdenado construirArbol(ArbolBinarioOrdenado izquierdo, int valor, ArbolBinarioOrdenado derecho)
+	{
+		ArbolBinarioOrdenado union = new ArbolBinarioOrdenado();
+		return union;
+		// Completar ¿?
+	}
+	public ArbolBinarioOrdenado hijoIzquierdo()
+	{
+		// Antonio Hernández
+		ArbolBinarioOrdenado hijoI = new ArbolBinarioOrdenado();
+		hijoI = this.izquierda;
+		return hijoI;
+	}
+	public ArbolBinarioOrdenado hijoDerecho()
+	{
+		// Alberto Arrojo
+		ArbolBinarioOrdenado hijoD = new ArbolBinarioOrdenado();
+		hijoD = this.derecha;
+		return hijoD;
+	}
+	public int raiz()
+	{
+		return this.valor;
+	}
+	public boolean esHoja(int v)
+	{
+		// José Manuel Fortún
+		boolean resultado = true;
+		if((this.izquierda==null)&&(this.derecha==null))
+		{
+			resultado = true;
+		}
+		else
+		{
+			resultado = false;
+		}
+		return resultado;
+		// Completar
+	}
+	public void eliminarArbol()
+	{
+		this.izquierda=null;
+		this.derecha=null;
+		this.setValor(null);
+		// El recolector eliminará el objeto
+	}
+	public int altura()
+	{
+		// Recursivo
+		int altura = 0;
+		// Base
+		// Caso Recursivo
+		return altura;
+		// Completar
+	}
+	public int hojas()
+	{
+		int hojas = 0;
+		// Recorrer todo el árbol
+		// Cuando llegue a un nodo, contar si es hoja o no
+		return hojas;
+		// Completar
+	}
+	public int contarDato(int x)
+	{
+		int cuenta = 0;
+		return cuenta;
+		// Completar
+	}
+	public int contarNodos()
+	{
+		int cuenta = 0;
+		return cuenta;
+		// Completar
+	}
+	public boolean existe(int x)
+	{
+		boolean existe = false;
+		return existe;
+		// Completar
+	}
+	public boolean comparar(ArbolBinarioOrdenado a, ArbolBinarioOrdenado b)
+	{
+		boolean iguales = true;
+		return iguales;
+		// Completar
+	}
+	public ArbolBinarioOrdenado espejo(ArbolBinarioOrdenado x)
+	{
+		ArbolBinarioOrdenado espejo = new ArbolBinarioOrdenado();
+		return espejo;
+		// Completar
+	}
+	public ArbolBinarioOrdenado buscarOrd(int valor)
+	{
+		ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
+		return arbol;
+		// Completar
+	}
+	public ArbolBinarioOrdenado insertarOrd(int valor)
+	{
+		ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
+		return arbol;
+		// Completar
+	}
+	public ArbolBinarioOrdenado extremoDerecho()
+	{
+		ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
+		return arbol;
+		// Completar
+	}
+	public ArbolBinarioOrdenado extremoIzquierdo()
+	{
+		ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
+		return arbol;
+		// Completar
+	}
+	public ArbolBinarioOrdenado eliminarOrd(int x)
+	{
+		ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
+		return arbol;
+		// Completar
+	}
+	public ArbolBinarioOrdenado hacerOrd(ArbolBinarioOrdenado a)
+	{
+		ArbolBinarioOrdenado arbol = new ArbolBinarioOrdenado();
+		return arbol;
+		// Completar
+	}
+	public int contarNodosEnNivel(int nivel)
+	{
+		int nodos = 0;
+		return nodos;
+		// Completar
+	}
 }
