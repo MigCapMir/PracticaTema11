@@ -9,6 +9,7 @@ public class PruebaArboles
         arbol1.add(5);
         arbol1.add(15);
         arbol1.add(8);
+        arbol1.add(8);
         System.out.println(arbol1.mostrar());
         
  
@@ -76,7 +77,8 @@ public class PruebaArboles
         ArbolBinarioOrdenado arbol4 = new ArbolBinarioOrdenado(arbol1.hijoDerecho());
         System.out.println("Mostrar en in order");
         arbol4.mostrarIn();
-        System.out.println("El árbol 1 tiene :"+arbol1.hojas());
+        System.out.println("El árbol 1 tiene "+arbol1.hojas()+" hojas.");
+        System.out.println("El árbol 1 tiene "+arbol1.contarNodos()+" nodos.");
         arbol1.anular();
         arbol1.eliminarArbol();
         System.out.println("Mostrar en in order");

@@ -93,7 +93,8 @@ public class ArbolBinarioOrdenado
 	}
 	public String mostrar()
 	{
-		String cadena = "[Valor="+getValor()+", Izquierda="+getIzquierda()+", Derecha="+getDerecha()+"]";
+		String cadena = "";
+
 		return cadena;
 		// Completar
 	}
@@ -187,9 +188,6 @@ public class ArbolBinarioOrdenado
 			System.out.println(valor);
 		}
 	}
-	/*
-	 * A partir de aquí    
-	 */
 	public void anular()
 	{
 		// Álvaro Carballo
@@ -244,7 +242,6 @@ public class ArbolBinarioOrdenado
 			resultado = false;
 		}
 		return resultado;
-		// Completar
 	}
 	public void eliminarArbol()
 	{
@@ -272,15 +269,34 @@ public class ArbolBinarioOrdenado
 	}
 	public int contarDato(int x)
 	{
+		// Parecido a hojas()
 		int cuenta = 0;
 		return cuenta;
 		// Completar
 	}
 	public int contarNodos()
 	{
+		// Javier Martín
 		int cuenta = 0;
+		if(this.valor==null)
+		{
+			cuenta = 0;
+		}
+		else
+		{
+			cuenta = 1;
+		}
+		if(this.izquierda!=null)
+		{
+			cuenta+=this.izquierda.contarNodos();
+
+		}
+		if(this.derecha!=null)
+		{
+			cuenta+=this.derecha.contarNodos();
+
+		}
 		return cuenta;
-		// Completar
 	}
 	public boolean existe(int x)
 	{
