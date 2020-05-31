@@ -93,10 +93,25 @@ public class ArbolBinarioOrdenado
 	}
 	public String mostrar()
 	{
-		String cadena = "";
+		// Felipe Santa-Cruz
+		String cadena = "[Valor="+getValor() + ", ";
+		try
+		{
+			cadena += "Izquierda=" + getIzquierda().mostrar();
+		} catch (NullPointerException npe)
+		{
+			cadena += "Izquierda=null";
+		}
+		try
+		{
+			cadena += ", Derecha=" +getDerecha().mostrar();
+		} catch (NullPointerException npe)
+		{
+			cadena += ", Derecha=null";
+		}
+		cadena += "]";
 
 		return cadena;
-		// Completar
 	}
 	public boolean buscar(Integer v) 
 	{
@@ -261,18 +276,42 @@ public class ArbolBinarioOrdenado
 	}
 	public int hojas()
 	{
+		// Francisco Javier Rodríguez Rufo
 		int hojas = 0;
 		// Recorrer todo el árbol
 		// Cuando llegue a un nodo, contar si es hoja o no
+		if((this.izquierda==null)&&(this.derecha==null))
+		{
+			hojas++;
+		}
+
+		if(this.getIzquierda()!=null)
+		{
+			hojas += izquierda.hojas();
+		}
+		if(this.getDerecha()!=null)
+		{
+			hojas += derecha.hojas();
+		}
 		return hojas;
-		// Completar
 	}
 	public int contarDato(int x)
 	{
-		// Parecido a hojas()
+		// Francisco José López Montesinos
 		int cuenta = 0;
+		if(this.getValor()==x)
+		{
+			cuenta++;
+		}
+		if(this.izquierda!=null)
+		{
+			cuenta += this.izquierda.contarDato(x);
+		}
+		if(this.derecha!=null)
+		{
+			cuenta += this.derecha.contarDato(x);
+		}
 		return cuenta;
-		// Completar
 	}
 	public int contarNodos()
 	{
@@ -306,9 +345,24 @@ public class ArbolBinarioOrdenado
 	}
 	public boolean comparar(ArbolBinarioOrdenado a, ArbolBinarioOrdenado b)
 	{
+		// José Villalón Rivero
 		boolean iguales = true;
+		if(a.getValor() == b.getValor())
+		{
+			if(a.getIzquierda()!=null && b.getIzquierda()!=null) 
+			{
+				iguales = comparar(a.getIzquierda(), b.getIzquierda());
+			}
+			if(a.getDerecha()!=null && b.getDerecha()!=null && iguales == true) 
+			{
+				iguales = comparar(a.getDerecha(), b.getDerecha());
+			}
+		}
+		else 
+		{
+			iguales = false;
+		}
 		return iguales;
-		// Completar
 	}
 	public ArbolBinarioOrdenado espejo(ArbolBinarioOrdenado x)
 	{

@@ -11,6 +11,10 @@ public class PruebaArboles
         arbol1.add(8);
         arbol1.add(8);
         System.out.println(arbol1.mostrar());
+        System.out.println(arbol1.contarDato(15));
+        System.out.println(arbol1.contarDato(8));
+        System.out.println(arbol1.contarDato(150));
+        System.out.println(arbol1.hojas());
         
  
         boolean resultado = arbol1.buscar(11);
